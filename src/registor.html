@@ -1,0 +1,165 @@
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0">
+    <title>山姆会员商店-注册</title>
+
+    <link rel="stylesheet" type="text/css" href="../src/css/registor.css">
+    <style>
+        #inp .inputon {
+            width: 440px;
+            height: 36px;
+            text-indent: 10px;
+            font-size: 14px;
+            border: 1px solid #dcdcdc
+        }
+
+        #inp .span {
+            display: block;
+            height: 30px;
+            text-indent: 10px;
+            line-height: 32px;
+            color: #ccc;
+            font-size: 12px;
+            font-weight: 100;
+        }
+    </style>
+
+<body>
+    <div class="global-center">
+        <div class="login-bg login-bg-regist">
+            <!--顶部logo标题区域-->
+            <div class="login-top-bg">
+                <div class="login-top">
+                    <div class="logo-box"><a href=""><img
+                                src=""></a>
+                    </div>
+                    <h3 class="login-tit"><em>欢迎注册</em></h3>
+                </div>
+            </div>
+
+
+
+
+                    <!--  表单登录验证-->
+                    <fieldset>
+
+                        <form action="../php/xuanran.php" method="post" id="form1">
+                            <!-------------- 用户名验证 ---------------->
+                            <p id="inp">
+                                <input class="inputon" type="text" name="username" id="username" placeholder="用户名">
+                                 <br>
+                                <label id="username-error" for="username">
+                                    <span class="span">4-20位字符，可由中文、英文、数字
+                                    </span>
+                                </label>
+                                <!-- 1.表单提示信息  2.存放报错信息 -->
+                            </p>
+                            <!-------------- 邮箱地址 ---------------->
+                            <p id="inp">
+
+                                <input class="inputon" type="text" name="email" id="email" placeholder="邮箱地址" />
+                                <label id="email-error" for="email">
+                                    <br>
+                                    <span class="span">请输入常用邮箱，可用作登录账户，接受订单通知和找回密码之用
+                                    </span>
+                                </label>
+                            </p>
+                            <!-------------- 设置密码 ----------------->
+                            <p id="inp">
+
+                                <input type="password" name="password" id="password" class="inputon"
+                                    placeholder="设置密码" />
+                                <label id="password-error" for="password"><br>
+                                    <span class="span">6-20位字符，可由大小写英文、数字或符号“-”“_”组成密码强度：密码强度：
+
+                                    </span>
+                                </label>
+                            </p>
+                            <!---------------------- 确认密码: ------------>
+                            <p id="inp">
+
+                                <input type="password" name="repass" id="repass" placeholder="确认密码" class="inputon" />
+                                <label id="repass-error" class="error" for="repass">
+                                    <span class="span">
+
+                                    </span>
+                                </label>
+                            </p>
+                            <p id="inp">
+                                <input type="submit" value="提交" name="submit" class="inputon"  style="background:rgb(111, 114, 250)"/>
+                            </p>
+
+                        </form>
+                    </fieldset>
+                    <!--同意信息-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../src/script/thirdplugins/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../src/script/thirdplugins/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        //表单验证-用户名
+        $(function () {
+            $('#form1').validate({
+                rules: {
+                    username: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 20,
+                        remote: {
+                            type: 'post',
+                            url: 'http://127.0.0.1/PHP/projectname/php/xuanran.php'
+                        }
+                    },
+                    email: {
+                        required: true,
+                        email: true,
+                        
+                    },
+                    password: {
+                        required: true,
+                        minlength: 6,
+                        maxlength: 20,
+                       
+                    },
+                    repass: {
+                        required: true,
+                        equalTo: '#password',
+                        
+                    },
+                },
+                messages: {
+                    username: {
+                        required: '<em class="err">用户名不能为空</em>',
+                        minlength: '用户名不能小于4',
+                        maxlength: '用户名不能大于0',
+                        remote: '<em class="err">用户名已存在</em>'
+                    },
+                    email: {
+                        required: '电子邮箱不能为空',
+                        email: '你输入的格式有误'
+                    },
+                    password: {
+                        required: '密码不能为空',
+                        minlength: '用户名不能小于4',
+                        maxlength: '用户名不能大于0',
+                    },
+                    repass: {
+                        required: '密码重复不能为空',
+                        equalTo: '密码不匹配'
+                    },
+                }
+            });
+        });
+       
+    </script>
+</body>
+
+</html>
