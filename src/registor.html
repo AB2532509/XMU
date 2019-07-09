@@ -7,25 +7,8 @@
     <title>山姆会员商店-注册</title>
 
     <link rel="stylesheet" type="text/css" href="../src/css/registor.css">
-    <style>
-        #inp .inputon {
-            width: 440px;
-            height: 36px;
-            text-indent: 10px;
-            font-size: 14px;
-            border: 1px solid #dcdcdc
-        }
+      <link rel="stylesheet" href="../src/css/zhuce.css">
 
-        #inp .span {
-            display: block;
-            height: 30px;
-            text-indent: 10px;
-            line-height: 32px;
-            color: #ccc;
-            font-size: 12px;
-            font-weight: 100;
-        }
-    </style>
 
 <body>
     <div class="global-center">
@@ -46,13 +29,13 @@
                     <!--  表单登录验证-->
                     <fieldset>
 
-                        <form action="../php/xuanran.php" method="post" id="form1">
+                        <form action="http://127.1.1.0/PHP/projectname/php/xuanran.php" method="post" class="inp-but" >
                             <!-------------- 用户名验证 ---------------->
                             <p id="inp">
-                                <input class="inputon" type="text" name="username" id="username" placeholder="用户名">
+                                <input class="inp-txt inputon" type="text" name="username" id="username" placeholder="用户名">
                                  <br>
                                 <label id="username-error" for="username">
-                                    <span class="span">4-20位字符，可由中文、英文、数字
+                                    <span class="span err_username">4-20位字符，可由中文、英文、数字
                                     </span>
                                 </label>
                                 <!-- 1.表单提示信息  2.存放报错信息 -->
@@ -60,20 +43,20 @@
                             <!-------------- 邮箱地址 ---------------->
                             <p id="inp">
 
-                                <input class="inputon" type="text" name="email" id="email" placeholder="邮箱地址" />
+                                <input class="inputon inp-email" type="text" name="email" id="email" placeholder="邮箱地址" />
                                 <label id="email-error" for="email">
                                     <br>
-                                    <span class="span">请输入常用邮箱，可用作登录账户，接受订单通知和找回密码之用
+                                    <span class="span err_email">请输入常用邮箱，可用作登录账户，接受订单通知和找回密码之用
                                     </span>
                                 </label>
                             </p>
                             <!-------------- 设置密码 ----------------->
                             <p id="inp">
 
-                                <input type="password" name="password" id="password" class="inputon"
+                                <input type="password" name="password" id="password" class="inputon inp-pwd0"
                                     placeholder="设置密码" />
                                 <label id="password-error" for="password"><br>
-                                    <span class="span">6-20位字符，可由大小写英文、数字或符号“-”“_”组成密码强度：密码强度：
+                                    <span class="span  err_pwd0">6-20位字符，可由大小写英文、数字或符号“-”“_”组成密码强度：密码强度：
 
                                     </span>
                                 </label>
@@ -81,15 +64,15 @@
                             <!---------------------- 确认密码: ------------>
                             <p id="inp">
 
-                                <input type="password" name="repass" id="repass" placeholder="确认密码" class="inputon" />
+                                <input type="password" name="repass" id="repass" placeholder="确认密码" class="inputon inp-pwd1" />
                                 <label id="repass-error" class="error" for="repass">
-                                    <span class="span">
-
+                                    <span class="span err_pwd1">
+                                        
                                     </span>
                                 </label>
                             </p>
                             <p id="inp">
-                                <input type="submit" value="提交" name="submit" class="inputon"  style="background:rgb(111, 114, 250)"/>
+                                <input type="submit" value="注册" name="submit" class="inputon inp-but0"  style="background:rgb(111, 114, 250)"/>
                             </p>
 
                         </form>
@@ -103,63 +86,10 @@
 
 
     <script src="../src/script/thirdplugins/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../src/script/js/shuju/ajax.js"></script>
+    <script src="../src/script/js/shuju/reg.js"></script>
     <script src="../src/script/thirdplugins/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript">
-        //表单验证-用户名
-        $(function () {
-            $('#form1').validate({
-                rules: {
-                    username: {
-                        required: true,
-                        minlength: 2,
-                        maxlength: 20,
-                        remote: {
-                            type: 'post',
-                            url: 'http://127.0.0.1/PHP/projectname/php/xuanran.php'
-                        }
-                    },
-                    email: {
-                        required: true,
-                        email: true,
-                        
-                    },
-                    password: {
-                        required: true,
-                        minlength: 6,
-                        maxlength: 20,
-                       
-                    },
-                    repass: {
-                        required: true,
-                        equalTo: '#password',
-                        
-                    },
-                },
-                messages: {
-                    username: {
-                        required: '<em class="err">用户名不能为空</em>',
-                        minlength: '用户名不能小于4',
-                        maxlength: '用户名不能大于0',
-                        remote: '<em class="err">用户名已存在</em>'
-                    },
-                    email: {
-                        required: '电子邮箱不能为空',
-                        email: '你输入的格式有误'
-                    },
-                    password: {
-                        required: '密码不能为空',
-                        minlength: '用户名不能小于4',
-                        maxlength: '用户名不能大于0',
-                    },
-                    repass: {
-                        required: '密码重复不能为空',
-                        equalTo: '密码不匹配'
-                    },
-                }
-            });
-        });
-       
-    </script>
+
 </body>
 
 </html>

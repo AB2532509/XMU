@@ -54,3 +54,10 @@
 #homeban #houmerul li.showpic{
 	 opacity: 1;
 } 
+
+
+.item{
+    width: 500px;
+    float: left;
+}
+
