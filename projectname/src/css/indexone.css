@@ -1,0 +1,63 @@
+#homeban{
+   
+        width: 1500px;
+        height: 400px;
+        position: relative;
+        margin: 0 auto;
+       
+}
+
+#homeban #houmerul li{
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    z-index: -99999px;
+}
+
+#homeban .homebanol{
+    position: absolute;
+    width: 500px;
+    height: 20px;
+    left: 50%;
+    margin-left: -120px;
+    bottom: 20px;
+}
+
+#homeban .homebanol li{
+    padding: 8px 20px;
+    width: 100px;
+    height: 20px;
+    
+    margin: 0 5px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    background: #fff;
+    
+   
+    
+}
+
+#homeban .homebanol li.active{
+    background: rgb(71, 71, 245);
+    color: aliceblue;
+    font-size: 12px;
+    font-weight: 500;
+    
+}
+
+#homeban #houmerul li {
+	z-index: 0; opacity: 0;
+}
+
+#homeban #houmerul li.showpic{
+	 opacity: 1;
+} 
+
+
+.item{
+    width: 500px;
+    float: left;
+}
+

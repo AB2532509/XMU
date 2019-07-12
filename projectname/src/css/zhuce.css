@@ -1,0 +1,21 @@
+#inp .inputon {
+    width: 440px;
+    height: 36px;
+    text-indent: 10px;
+    font-size: 14px;
+    border: 1px solid #dcdcdc
+}
+
+.span {
+    display: block;
+    height: 30px;
+    text-indent: 10px;
+    line-height: 32px;
+    color: #ccc;
+    font-size: 12px;
+    font-weight: 100;
+}
+
+.err_username{
+    color: blue
+}
